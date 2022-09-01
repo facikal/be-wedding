@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const db = new Sequelize('invitation_wedding', 'root', '', {
+const db = new Sequelize('invitation_wedding', 'xvpccpjpuokmhc', '952a533efea8f4138f855baa3f925fc70f23308f1f0b173ab4485a34ec02a092', {
   database:"dfjnfmq1oik2l1",
   username:"xvpccpjpuokmhc",
   password:"952a533efea8f4138f855baa3f925fc70f23308f1f0b173ab4485a34ec02a092",
