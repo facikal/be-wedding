@@ -28,7 +28,7 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:3000'
+  origin: 'be-test-wedding.herokuapp.com'
 }))
 app.use(session({
   secret: process.env.SESS_SECRET,
