@@ -37,7 +37,7 @@ app.use(session({
   // store: store,
   cookie: {
     maxAge: 60*60*1000,
-    secure: 'auto'
+    secure: true
   }
 }))
 app.use(FileUpload())
