@@ -6,7 +6,6 @@ module.exports = {
       name: "Fadhilah Cikal",
       email: "fadhil1999@gmail.com",
       password: "@Cikal220899",
-      confPassword: "@Cikal220899",
       role:"admin",
       createdAt: new Date(),
       updatedAt: new Date()
