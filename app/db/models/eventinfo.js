@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     locAkad: {
@@ -37,7 +36,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     addressAkad: {
@@ -48,7 +46,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     locResepsi: {
@@ -56,7 +53,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     addressResepsi: {
@@ -64,7 +60,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     textFirstMeet: {
@@ -72,7 +67,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     textJadian: {
@@ -80,7 +74,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     textLamaran: {
@@ -88,7 +81,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     video: {
@@ -96,7 +88,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     addressGift: {
@@ -104,7 +95,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     recieverGift: {
@@ -112,7 +102,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     instagram: {
@@ -120,7 +109,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true
       }
     },
     userId: {
