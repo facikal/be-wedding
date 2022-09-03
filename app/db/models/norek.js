@@ -26,13 +26,13 @@ module.exports = (sequelize, DataTypes) => {
     bank: DataTypes.STRING,
     name: DataTypes.STRING,
     number: DataTypes.STRING,
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   validate: {
+    //     notEmpty: true,
+    //   }
+    // },
   }, {
     sequelize,
     modelName: 'Norek',
