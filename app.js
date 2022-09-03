@@ -39,7 +39,6 @@ app.use(session({
     maxAge: 60 * 60 * 1000,
     secure: 'auto',
     httpOnly: false,
-    sameSite:none
   }
 }))
 app.use(FileUpload())
