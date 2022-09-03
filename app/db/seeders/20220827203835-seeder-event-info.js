@@ -17,7 +17,6 @@ module.exports = {
       addressGift: "asdasd",
       recieverGift: "asdasd",
       instagram: "asdasd",
-      userId: "1",
       createdAt: new Date(),
       updatedAt: new Date()
 
