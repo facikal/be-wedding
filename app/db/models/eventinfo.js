@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      EventInfo.belongsTo(models.User)
+      // EventInfo.belongsTo(models.User)
 
     }
   }
@@ -37,13 +37,13 @@ module.exports = (sequelize, DataTypes) => {
     addressGift: DataTypes.TEXT,
     recieverGift: DataTypes.STRING,
     instagram: DataTypes.STRING,
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   validate: {
+    //     notEmpty: true,
+    //   }
+    // },
   }, {
     sequelize,
     modelName: 'EventInfo',

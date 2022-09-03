@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      CoupleInfo.belongsTo(models.User)
+      // CoupleInfo.belongsTo(models.User)
     }
   }
   CoupleInfo.init({
@@ -31,13 +31,13 @@ module.exports = (sequelize, DataTypes) => {
     child: DataTypes.STRING,
     father: DataTypes.STRING,
     mother: DataTypes.STRING,
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   validate: {
+    //     notEmpty: true,
+    //   }
+    // },
   }, {
     sequelize,
     modelName: 'CoupleInfo',

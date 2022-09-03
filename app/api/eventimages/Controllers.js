@@ -6,12 +6,7 @@ const fs = require('fs')
 const getImage = async (req, res) => {
   try {
     const search = req.query.title || ""
-    const result = await EventImage.findAll({
-      include: [{
-        model: User,
-        attributes: ['name','email']
-      }]
-    });
+    const result = await EventImage.findAll();
     const title = await EventImage.findAll({
       where: {
         title: {
@@ -63,8 +58,7 @@ const saveImage = async (req, res) => {
         {
           title: title,
           image: fileName,
-          userId: req.userId,
-          url: url,
+          url: url
         }
       )
       res.status(201).json({ msg: 'couple info created' })
@@ -110,8 +104,7 @@ const updateImage = async (req, res) => {
     await EventImage.update({
       title: title,
       image: fileName,
-      url: url,
-      userId: req.userId
+      url: url
     }, {
       where: {
         uuid: req.params.id
