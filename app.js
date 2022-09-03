@@ -26,6 +26,13 @@ dotenv.config();
 const URL = '/api/v1'
 const app = express();
 
+app.use((req, res, next) => {
+  req.setHeader('Access-Control-Allow-Origin', '*');
+  req.setHeader('Access-Control-Allow-Method', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  req.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next()
+
+})
 app.use(cors({
   credentials: true,
   origin: true,
