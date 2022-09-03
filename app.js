@@ -26,10 +26,7 @@ dotenv.config();
 const URL = '/api/v1'
 const app = express();
 
-app.use(cors({
-  credentials: true,
-  origin: 'https://fe-wedding.vercel.app'
-}))
+app.use(cors())
 app.use(session({
   secret: process.env.SESS_SECRET,
   resave: false,
