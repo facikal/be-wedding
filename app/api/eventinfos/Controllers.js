@@ -1,14 +1,16 @@
-const { EventInfo, User } = require('../../db/models')
+const { EventInfo } = require('../../db/models')
 
 
 const getEventInfo = async (req, res) => {
   try {
-    const result = await EventInfo.findAll({
-      include: [{
-        model: User,
-        attributes: ['name', 'email']
-      }]
-    });
+    const result = await EventInfo.findAll(
+    //   {
+    //   include: [{
+    //     model: User,
+    //     attributes: ['name', 'email']
+    //   }]
+    // }
+    );
     res.json(result)
   } catch (error) {
     console.log(error)
@@ -58,7 +60,7 @@ const saveEventInfo = async (req, res) => {
         addressGift: addressGift,
         recieverGift: recieverGift,
         instagram: instagram,
-        userId: req.userId
+        // userId: req.userId
       }
     )
     res.status(201).json({ msg: 'event info created', result:result })
@@ -98,7 +100,7 @@ const updateEventInfo = async (req, res) => {
       addressGift: addressGift,
       recieverGift: recieverGift,
       instagram: instagram,
-      userId: req.userId
+      // userId: req.userId
 
     }, {
       where: {

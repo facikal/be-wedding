@@ -1,4 +1,4 @@
-const { CoupleInfo, User } = require('../../db/models')
+const { CoupleInfo } = require('../../db/models')
 const { Op } = require('sequelize')
 const path = require('path')
 const fs = require('fs')
@@ -6,12 +6,14 @@ const fs = require('fs')
 const getCoupleInfo = async (req, res) => {
   try {
     const search = req.query.search_gender || ""
-    const result = await CoupleInfo.findAll({
-      include: [{
-        model: User,
-        attributes: ['name', 'email']
-      }]
-    });
+    const result = await CoupleInfo.findAll(
+    //   {
+    //   include: [{
+    //     model: User,
+    //     attributes: ['name', 'email']
+    //   }]
+    // }
+    );
     const gender = await CoupleInfo.findOne({
       where: {
         gender: {
@@ -74,7 +76,7 @@ const saveCoupleInfo = async (req, res) => {
           mother: mother,
           image: fileName,
           url: url,
-          userId: req.userId,
+          // userId: req.userId,
         }
       )
       res.status(201).json({ msg: 'couple info created' })
@@ -131,7 +133,7 @@ const updateCoupleInfo = async (req, res) => {
       mother: mother,
       image: fileName,
       url: url,
-      userId: req.userId,
+      // userId: req.userId,
     }, {
       where: {
         uuid: req.params.id
