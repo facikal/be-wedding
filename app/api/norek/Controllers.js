@@ -1,4 +1,4 @@
-const { Norek, User } = require('../../db/models')
+const { Norek } = require('../../db/models')
 
 const getNorek = async (req, res) => {
   try {
@@ -26,7 +26,7 @@ const createNorek = async (req, res) => {
   const { bank, name, number } = req.body;
 
   try {
-    const result = await Norek.create(
+    await Norek.create(
       {
         bank: bank,
         name: name,
