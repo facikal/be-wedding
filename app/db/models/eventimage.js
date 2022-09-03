@@ -24,27 +24,9 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
+    title: DataTypes.STRING,
+    image: DataTypes.STRING,
+    url: DataTypes.STRING,
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,

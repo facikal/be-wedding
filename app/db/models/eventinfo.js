@@ -24,93 +24,19 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
-    dateAkad: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    locAkad: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    addressAkad: {
-
-    },
-    dateResepsi: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    locResepsi: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    addressResepsi: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    textFirstMeet: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    textJadian: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    textLamaran: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    video: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    addressGift: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    recieverGift: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
-    instagram: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
-    },
+    dateAkad: DataTypes.DATE,
+    locAkad: DataTypes.STRING,
+    addressAkad: DataTypes.TEXT,
+    dateResepsi: DataTypes.DATE,
+    locResepsi: DataTypes.STRING,
+    addressResepsi: DataTypes.TEXT,
+    textFirstMeet: DataTypes.TEXT,
+    textJadian: DataTypes.TEXT,
+    textLamaran: DataTypes.TEXT,
+    video: DataTypes.STRING,
+    addressGift: DataTypes.TEXT,
+    recieverGift: DataTypes.STRING,
+    instagram: DataTypes.STRING,
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
