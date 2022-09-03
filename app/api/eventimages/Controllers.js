@@ -7,12 +7,12 @@ const getImage = async (req, res) => {
   try {
     const search = req.query.title || ""
     const result = await EventImage.findAll(
-    //   {
-    //   include: [{
-    //     model: User,
-    //     attributes: ['name','email']
-    //   }]
-    // }
+      //   {
+      //   include: [{
+      //     model: User,
+      //     attributes: ['name','email']
+      //   }]
+      // }
     );
     const title = await EventImage.findAll({
       where: {
