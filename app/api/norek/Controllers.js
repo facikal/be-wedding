@@ -1,15 +1,13 @@
-const { Norek } = require('../../db/models')
+const { Norek, User } = require('../../db/models')
 
 const getNorek = async (req, res) => {
   try {
-    const result = await Norek.findAll(
-    //   {
-    //   include: [{
-    //     model: User,
-    //     attributes: ['name', 'email']
-    //   }]
-    // }
-    );
+    const result = await Norek.findAll({
+      include: [{
+        model: User,
+        attributes: ['name', 'email']
+      }]
+    });
     res.json(result)
   } catch (error) {
     console.log(error)
@@ -40,7 +38,7 @@ const createNorek = async (req, res) => {
         bank: bank,
         name: name,
         number: number,
-        // userId: req.userId
+        userId: req.userId
       }
     )
     res.status(201).json({ msg: 'event info created', result: result })
@@ -60,7 +58,7 @@ const updateNorek = async (req, res) => {
       bank: bank,
       name: name,
       number: number,
-      // userId: req.userId
+      userId: req.userId
     }, {
       where: {
         uuid: req.params.id

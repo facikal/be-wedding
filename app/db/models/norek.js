@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // Norek.belongsTo(models.User, { foreignKey: 'userId' })
+      Norek.belongsTo(models.User, { foreignKey: 'userId' })
     }
   }
   Norek.init({
@@ -26,17 +26,17 @@ module.exports = (sequelize, DataTypes) => {
     bank: DataTypes.STRING,
     name: DataTypes.STRING,
     number: DataTypes.STRING,
-    // userId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   validate: {
-    //     notEmpty: true,
-    //   },
-    //   references: {
-    //     model: 'Users',
-    //     key: 'id'
-    //   }
-    // },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+      references: {
+        model: 'Users',
+        key: 'id'
+      }
+    },
   }, {
     sequelize,
     modelName: 'Norek',
