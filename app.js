@@ -5,7 +5,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 // const db = require('./app/config/dbDeploy');
-const { db } = require('./app/db/models/index')
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')
 const CommentsRoutes = require('./app/api/comments/Routes')
@@ -18,11 +17,11 @@ const Auth = require('./app/api/auth/Routes')
 const dotenv = require('dotenv')
 dotenv.config();
 
-const sessionStore = SequelizeStore(session.Store);
+// const sessionStore = SequelizeStore(session.Store);
 
-const store = new sessionStore({
-  db: db
-})
+// const store = new sessionStore({
+//   db: db
+// })
 
 const URL = '/api/v1'
 const app = express();
@@ -35,7 +34,7 @@ app.use(session({
   secret: process.env.SESS_SECRET,
   resave: false,
   saveUninitialized: true,
-  store: store,
+  // store: store,
   cookie: {
     maxAge: 60*60*1000,
     secure: 'auto'
