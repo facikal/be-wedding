@@ -2,13 +2,7 @@ const { Norek, User } = require('../../db/models')
 
 const getNorek = async (req, res) => {
   try {
-    const result = await Norek.findAll({
-      attributes: ['uuid', 'bank', 'name', 'number'],
-      include: [{
-        model: User,
-        attributes: ['name', 'email']
-      }]
-    });
+    const result = await Norek.findAll();
     res.json(result)
   } catch (error) {
     console.log(error)
@@ -18,7 +12,6 @@ const getNorek = async (req, res) => {
 const getNorekById = async (req, res) => {
   try {
     const result = await Norek.findOne({
-      attributes: ['uuid', 'bank', 'name', 'number'],
       where: {
         uuid: req.params.id
       }
@@ -41,7 +34,7 @@ const createNorek = async (req, res) => {
         userId: req.userId
       }
     )
-    res.status(201).json({ msg: 'event info created', result: result })
+    res.status(201).json({ msg: 'norek created', result: result })
   } catch (error) {
     console.log(error.messege);
   }
@@ -62,7 +55,7 @@ const updateNorek = async (req, res) => {
         uuid: req.params.id
       }
     })
-    res.status(200).json({ msg: 'couple info updated' })
+    res.status(200).json({ msg: 'Norek updated' })
   } catch (error) {
     console.log(error.messege)
   }
