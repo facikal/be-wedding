@@ -4,9 +4,9 @@ const FileUpload = require('express-fileupload')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const db = require('./app/config/dbDeploy');
+// const db = require('./app/config/dbDeploy');
 const session = require('express-session');
-const SequelizeStore = require('connect-session-sequelize')
+// const SequelizeStore = require('connect-session-sequelize')
 const CommentsRoutes = require('./app/api/comments/Routes')
 const CoupleInfoRoutes = require('./app/api/coupleinfos/Routes')
 const EventInfoRoutes = require('./app/api/eventinfos/Routes')
@@ -28,13 +28,13 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin: 'https://be-test-wedding.herokuapp.com'
+  // origin: 'https://be-test-wedding.herokuapp.com'
 }))
 app.use(session({
   secret: process.env.SESS_SECRET,
   resave: false,
   saveUninitialized: true,
-  store: store,
+  // store: store,
   cookie: {
     maxAge: 60*60*1000,
     secure: 'auto'
