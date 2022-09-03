@@ -17,18 +17,18 @@ const Auth = require('./app/api/auth/Routes')
 const dotenv = require('dotenv')
 dotenv.config();
 
-const sessionStore = SequelizeStore(session.Store);
+// const sessionStore = SequelizeStore(session.Store);
 
-const store = new sessionStore({
-  db: db
-})
+// const store = new sessionStore({
+//   db: db
+// })
 
 const URL = '/api/v1'
 const app = express();
 
 app.use(cors({
   credentials: true,
-  // origin: 'https://be-test-wedding.herokuapp.com'
+  origin: 'https://be-test-wedding.herokuapp.com'
 }))
 app.use(session({
   secret: process.env.SESS_SECRET,
