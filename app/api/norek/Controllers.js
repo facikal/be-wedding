@@ -3,7 +3,7 @@ const { Norek } = require('../../db/models')
 const getNorek = async (req, res) => {
   try {
     const result = await Norek.findAll();
-    res.json(result)
+    res.status(200).json(result)
   } catch (error) {
     console.log(error)
   }
