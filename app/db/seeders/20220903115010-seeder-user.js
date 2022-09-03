@@ -6,6 +6,8 @@ module.exports = {
       email: "fadhil1999@gmail.com",
       password: "1234",
       confPassword: "1234",
+      createdAt: new Date(),
+      updatedAt: new Date()
     }], {});
   },
   async down (queryInterface, Sequelize) {
