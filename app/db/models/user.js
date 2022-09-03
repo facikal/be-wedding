@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.CoupleInfo)
       User.hasMany(models.EventImage)
       User.hasMany(models.EventInfo)
-      User.hasMany(models.Norek)
+      // User.hasMany(models.Norek)
     }
   }
   User.init({
