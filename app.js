@@ -27,9 +27,9 @@ const URL = '/api/v1'
 const app = express();
 
 app.use((req, res, next) => {
-  req.setHeader('Access-Control-Allow-Origin', '*');
-  req.setHeader('Access-Control-Allow-Method', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-  req.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Method', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next()
 
 })
