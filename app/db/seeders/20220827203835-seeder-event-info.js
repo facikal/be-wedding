@@ -3,6 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('EventInfos', [{
+      uuid: "123455asdas",
       dateAkad: new Date("Aug 31, 2022 12:30:00"),
       locAkad: "asdasd",
       addressAkad: "asdasd",
@@ -16,6 +17,7 @@ module.exports = {
       addressGift: "asdasd",
       recieverGift: "asdasd",
       instagram: "asdasd",
+      userId: "1"
 
     }], {});
   },
