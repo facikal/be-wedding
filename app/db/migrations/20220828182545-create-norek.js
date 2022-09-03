@@ -10,11 +10,6 @@ module.exports = {
       },
       uuid: {
         type: Sequelize.STRING,
-        defaultValue: Sequelize.UUIDV4,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        }
       },
       bank: {
         type: Sequelize.STRING
@@ -27,9 +22,9 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
+        references: {
+          model: 'Users',
+          key: 'id'
         }
       },
       createdAt: {
