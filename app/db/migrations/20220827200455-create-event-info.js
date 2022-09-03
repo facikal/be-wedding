@@ -59,17 +59,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      // userId: {
-      //   type: Sequelize.INTEGER,
-      //   allowNull: false,
-      //   validate: {
-      //     notEmpty: true,
-      //   },
-      //   references: {
-      //     model: 'Users',
-      //     key: 'id'
-      //   }
-      // },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
+      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE

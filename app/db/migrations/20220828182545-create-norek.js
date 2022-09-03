@@ -25,13 +25,13 @@ module.exports = {
       number: {
         type: Sequelize.STRING
       },
-      // userId: {
-      //   type: Sequelize.INTEGER,
-      //   references: {
-      //     model: 'Users',
-      //     key: 'id'
-      //   }
-      // },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -1,8 +1,13 @@
-const { Norek } = require('../../db/models')
+const { Norek, User } = require('../../db/models')
 
 const getNorek = async (req, res) => {
   try {
-    const result = await Norek.findAll();
+    const result = await Norek.findAll({
+      include: [{
+        model: User,
+        attributes: ['name', 'email']
+      }]
+    });
     res.json(result)
   } catch (error) {
     console.log(error)
@@ -23,17 +28,20 @@ const getNorekById = async (req, res) => {
 }
 
 const createNorek = async (req, res) => {
-  const { bank, name, number } = req.body;
+  const bank = req.body.bank
+  const name = req.body.name
+  const number = req.body.number
 
   try {
-    await Norek.create(
+    const result = await Norek.create(
       {
         bank: bank,
         name: name,
         number: number,
+        userId: req.userId
       }
     )
-    res.status(201).json({ msg: 'norek created', result: result })
+    res.status(201).json({ msg: 'event info created', result: result })
   } catch (error) {
     console.log(error.messege);
   }
@@ -41,19 +49,22 @@ const createNorek = async (req, res) => {
 }
 
 const updateNorek = async (req, res) => {
-  const { bank, name, number } = req.body;
+  const bank = req.body.bank
+  const name = req.body.name
+  const number = req.body.number
 
   try {
     await Norek.update({
       bank: bank,
       name: name,
       number: number,
+      userId: req.userId
     }, {
       where: {
         uuid: req.params.id
       }
     })
-    res.status(200).json({ msg: 'Norek updated' })
+    res.status(200).json({ msg: 'couple info updated' })
   } catch (error) {
     console.log(error.messege)
   }
@@ -66,7 +77,7 @@ const deleteNorek = async (req, res) => {
         uuid: req.params.id
       }
     });
-    res.status(200).json({ msg: 'norek deleted' })
+    res.status(200).json({ msg: 'event info deleted' })
   } catch (error) {
     console.log(error.messege)
   }

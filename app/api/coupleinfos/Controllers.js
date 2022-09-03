@@ -6,7 +6,12 @@ const fs = require('fs')
 const getCoupleInfo = async (req, res) => {
   try {
     const search = req.query.search_gender || ""
-    const result = await CoupleInfo.findAll();
+    const result = await CoupleInfo.findAll({
+      include: [{
+        model: User,
+        attributes: ['name', 'email']
+      }]
+    });
     const gender = await CoupleInfo.findOne({
       where: {
         gender: {
@@ -68,7 +73,8 @@ const saveCoupleInfo = async (req, res) => {
           father: father,
           mother: mother,
           image: fileName,
-          url: url
+          url: url,
+          userId: req.userId,
         }
       )
       res.status(201).json({ msg: 'couple info created' })
@@ -124,7 +130,8 @@ const updateCoupleInfo = async (req, res) => {
       father: father,
       mother: mother,
       image: fileName,
-      url: url
+      url: url,
+      userId: req.userId,
     }, {
       where: {
         uuid: req.params.id
