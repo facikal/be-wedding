@@ -24,19 +24,105 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
-    dateAkad: DataTypes.DATE,
-    locAkad: DataTypes.STRING,
-    addressAkad: DataTypes.TEXT,
-    dateResepsi: DataTypes.DATE,
-    locResepsi: DataTypes.STRING,
-    addressResepsi: DataTypes.TEXT,
-    textFirstMeet: DataTypes.TEXT,
-    textJadian: DataTypes.TEXT,
-    textLamaran: DataTypes.TEXT,
-    video: DataTypes.STRING,
-    addressGift: DataTypes.TEXT,
-    recieverGift: DataTypes.STRING,
-    instagram: DataTypes.STRING,
+    dateAkad: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    locAkad: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    addressAkad: {
+
+    },
+    dateResepsi: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    locResepsi: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    addressResepsi: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    textFirstMeet: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    textJadian: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    textLamaran: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    video: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    addressGift: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    recieverGift: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    instagram: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,

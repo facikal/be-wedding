@@ -23,14 +23,70 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
-    gender: DataTypes.STRING,
-    full: DataTypes.STRING,
-    nick: DataTypes.STRING,
-    image: DataTypes.STRING,
-    url: DataTypes.STRING,
-    child: DataTypes.STRING,
-    father: DataTypes.STRING,
-    mother: DataTypes.STRING,
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    full: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    nick: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    child: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    father: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    mother: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
