@@ -13,7 +13,7 @@ const getNorekById = async (req, res) => {
   try {
     const result = await Norek.findOne({
       where: {
-        id: req.params.id
+        uuid: req.params.id
       }
     });
     res.json(result)
@@ -31,7 +31,7 @@ const createNorek = async (req, res) => {
         bank: bank,
         name: name,
         number: number,
-        userId: req.userId
+        // userId: req.userId
       }
     )
     res.status(201).json({ msg: 'norek created', result: result })
@@ -49,10 +49,10 @@ const updateNorek = async (req, res) => {
       bank: bank,
       name: name,
       number: number,
-      userId: req.userId
+      // userId: req.userId
     }, {
       where: {
-        id: req.params.id
+        uuid: req.params.id
       }
     })
     res.status(200).json({ msg: 'Norek updated' })
@@ -65,7 +65,7 @@ const deleteNorek = async (req, res) => {
   try {
     await Norek.destroy({
       where: {
-        id: req.params.id
+        uuid: req.params.id
       }
     });
     res.status(200).json({ msg: 'norek deleted' })
