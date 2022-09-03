@@ -28,7 +28,7 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin: 'https://fe-wedding.vercel.app'
+  origin: "*"
 }))
 app.use(session({
   secret: process.env.SESS_SECRET,
