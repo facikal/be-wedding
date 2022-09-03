@@ -40,17 +40,17 @@ module.exports = {
       mother: {
         type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
-        references: {
-          model: 'Users',
-          key: 'id'
-        }
-      },
+      // userId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   validate: {
+      //     notEmpty: true,
+      //   },
+      //   references: {
+      //     model: 'Users',
+      //     key: 'id'
+      //   }
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

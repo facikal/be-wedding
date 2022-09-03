@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      EventInfo.belongsTo(models.User, { foreignKey: 'userId' })
+      // EventInfo.belongsTo(models.User, { foreignKey: 'userId' })
 
     }
   }
@@ -37,17 +37,17 @@ module.exports = (sequelize, DataTypes) => {
     addressGift: DataTypes.TEXT,
     recieverGift: DataTypes.STRING,
     instagram: DataTypes.STRING,
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-      references: {
-        model: 'Users',
-        key: 'id'
-      }
-    },
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   validate: {
+    //     notEmpty: true,
+    //   },
+    //   references: {
+    //     model: 'Users',
+    //     key: 'id'
+    //   }
+    // },
   }, {
     sequelize,
     modelName: 'EventInfo',
