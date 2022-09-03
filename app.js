@@ -4,7 +4,7 @@ const FileUpload = require('express-fileupload')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-// const db = require('./app/config/dbDeploy');
+// const db = require('./app/config/db');
 const session = require('express-session');
 // const SequelizeStore = require('connect-session-sequelize')
 const CommentsRoutes = require('./app/api/comments/Routes')
@@ -28,7 +28,7 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin: true
+  origin: 'https://fe-wedding.vercel.app/'
 }))
 app.use(session({
   secret: process.env.SESS_SECRET,
@@ -40,7 +40,6 @@ app.use(session({
     secure: 'auto'
   }
 }))
-
 app.use(FileUpload())
 app.use(logger('dev'));
 app.use(express.json());

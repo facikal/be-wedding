@@ -43,6 +43,9 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
         references: {
           model: 'Users',
           key: 'id'
