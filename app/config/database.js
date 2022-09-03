@@ -21,7 +21,7 @@ module.exports = {
     "host": "ec2-52-70-45-163.compute-1.amazonaws.com",
     'dialect': "postgres",
     "dialectOptions": {
-      ssl: { rejectUnauthorized: false },
+      "ssl": { "rejectUnauthorized": false },
     },
   }
 }
