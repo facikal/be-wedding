@@ -29,7 +29,6 @@ const app = express();
 app.use(cors({
   credentials: true,
   origin: true,
-  allowedHeaders
 }))
 app.use(session({
   secret: process.env.SESS_SECRET,
