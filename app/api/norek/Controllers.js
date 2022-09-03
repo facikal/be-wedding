@@ -31,7 +31,7 @@ const createNorek = async (req, res) => {
         bank: bank,
         name: name,
         number: number,
-        // userId: req.userId
+        userId: req.userId
       }
     )
     res.status(201).json({ msg: 'norek created', result: result })
@@ -49,7 +49,7 @@ const updateNorek = async (req, res) => {
       bank: bank,
       name: name,
       number: number,
-      // userId: req.userId
+      userId: req.userId
     }, {
       where: {
         uuid: req.params.id
