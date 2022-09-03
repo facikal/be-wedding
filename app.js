@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 
 })
 app.use(cors({
-  credentials: true,
+  // credentials: true,
   origin: true,
 }))
 app.use(session({
