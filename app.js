@@ -36,8 +36,9 @@ app.use(session({
   saveUninitialized: true,
   // store: store,
   cookie: {
-    maxAge: 60*60*1000,
-    secure: 'auto'
+    maxAge: 60 * 60 * 1000,
+    secure: 'auto',
+    httpOnly: false
   }
 }))
 app.use(FileUpload())
