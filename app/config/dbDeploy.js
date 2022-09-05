@@ -1,7 +1,6 @@
 const { Sequelize } = require('sequelize');
-const db = require('../db/models');
 const env = process.env.NODE_ENV || 'production';
-const config = require(__dirname + '/../../config/database.js')[env];
+const config = require('./database.js')[env];
 
 let db;
 if (config.use_env_variable) {
