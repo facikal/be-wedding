@@ -1,9 +1,9 @@
-const { EventInfo, User } = require('../../db/models')
+const { Eventinfo, User } = require('../../db/models')
 
 
 const getEventInfo = async (req, res) => {
   try {
-    const result = await EventInfo.findAll({
+    const result = await Eventinfo.findAll({
       attributes: ['uuid', 'dateAkad', 'locAkad', 'addressAkad', 'dateResepsi', 'locResepsi', 'addressResepsi', 'textFirstMeet', 'textJadian', 'textLamaran', 'video', 'addressGift', 'recieverGift','instagram'],
       include: [{
         model: User,
@@ -17,7 +17,7 @@ const getEventInfo = async (req, res) => {
 }
 const getEventInfoById = async (req, res) => {
   try {
-    const result = await EventInfo.findOne({
+    const result = await Eventinfo.findOne({
       attributes: ['uuid', 'dateAkad', 'locAkad', 'addressAkad', 'dateResepsi', 'locResepsi', 'addressResepsi', 'textFirstMeet', 'textJadian', 'textLamaran', 'video', 'addressGift', 'recieverGift', 'instagram'],
       where: {
         uuid: req.params.id
@@ -45,7 +45,7 @@ const saveEventInfo = async (req, res) => {
   const recieverGift = req.body.recieverGift
   const instagram = req.body.instagram
   try {
-    const result = await EventInfo.create(
+    const result = await Eventinfo.create(
       {
         dateAkad: dateAkad,
         locAkad: locAkad,
@@ -86,7 +86,7 @@ const updateEventInfo = async (req, res) => {
   const instagram = req.body.instagram
 
   try {
-    await EventInfo.update({
+    await Eventinfo.update({
       dateAkad: dateAkad,
       locAkad: locAkad,
       addressAkad: addressAkad,
@@ -115,7 +115,7 @@ const updateEventInfo = async (req, res) => {
 
 const deleteEventInfo = async (req, res) => {
   try {
-    await EventInfo.destroy({
+    await Eventinfo.destroy({
       where: {
         uuid: req.params.id
       }

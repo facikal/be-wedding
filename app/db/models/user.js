@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Coupleinfo)
       User.hasMany(models.Eventimage)
-      User.hasMany(models.EventInfo)
+      User.hasMany(models.Eventinfo)
       User.hasMany(models.Norek)
     }
   }
