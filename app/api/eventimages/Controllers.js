@@ -7,12 +7,14 @@ const getImage = async (req, res) => {
   try {
     const search = req.query.title || ""
     const result = await Eventimage.findAll({
+      attributes: ['uuid', 'title', 'image'],
       include: [{
         model: User,
         attributes: ['name','email']
       }]
     });
     const title = await Eventimage.findAll({
+      attributes: ['uuid', 'title', 'image'],
       where: {
         title: {
           [Op.like]: search
