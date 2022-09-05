@@ -31,14 +31,14 @@ app.use(cors({
   origin: true,
 }))
 app.use(session({
-  // secret: process.env.SESS_SECRET,
+  secret: process.env.SESS_SECRET,
   resave: false,
   saveUninitialized: true,
   store: store,
   cookie: {
     maxAge: 60 * 60 * 1000,
     secure: 'auto',
-    httpOnly: false,
+    // httpOnly: false,
   }
 }))
 app.use(FileUpload())
