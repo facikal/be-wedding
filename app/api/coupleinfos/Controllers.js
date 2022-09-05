@@ -7,13 +7,14 @@ const getCoupleInfo = async (req, res) => {
   try {
     const search = req.query.search_gender || ""
     const result = await Coupleinfo.findAll({
-      attributes: ['full','nick','child','father','mother','image','url'],
+      attributes: ['gender','full','nick','child','father','mother','image','url'],
       include: [{
         model: User,
         attributes: ['name', 'email']
       }]
     });
     const gender = await Coupleinfo.findOne({
+      attributes: ['gender', 'full', 'nick', 'child', 'father', 'mother', 'image', 'url'],
       where: {
         gender: {
           [Op.like]: search
@@ -32,6 +33,7 @@ const getCoupleInfo = async (req, res) => {
 const getCoupleInfoById = async (req, res) => {
   try {
     const result = await Coupleinfo.findOne({
+      attributes: ['gender', 'full', 'nick', 'child', 'father', 'mother', 'image', 'url'],
       where: {
         uuid: req.params.id
       }
