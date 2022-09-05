@@ -1,4 +1,4 @@
-const { CoupleInfo, User } = require('../../db/models')
+const { Coupleinfo, User } = require('../../db/models')
 const { Op } = require('sequelize')
 const path = require('path')
 const fs = require('fs')
@@ -6,14 +6,14 @@ const fs = require('fs')
 const getCoupleInfo = async (req, res) => {
   try {
     const search = req.query.search_gender || ""
-    const result = await CoupleInfo.findAll({
+    const result = await Coupleinfo.findAll({
       attributes: ['full','nick','child','father','mother','image','url'],
       include: [{
         model: User,
         attributes: ['name', 'email']
       }]
     });
-    const gender = await CoupleInfo.findOne({
+    const gender = await Coupleinfo.findOne({
       where: {
         gender: {
           [Op.like]: search
@@ -31,7 +31,7 @@ const getCoupleInfo = async (req, res) => {
 
 const getCoupleInfoById = async (req, res) => {
   try {
-    const result = await CoupleInfo.findOne({
+    const result = await Coupleinfo.findOne({
       where: {
         uuid: req.params.id
       }
@@ -65,7 +65,7 @@ const saveCoupleInfo = async (req, res) => {
   file.mv(`./public/images/${fileName}`, async (err) => {
     if (err) return res.status(500).json({ msg: err.messege })
     try {
-      await CoupleInfo.create(
+      await Coupleinfo.create(
         {
           gender: gender,
           full: full,
@@ -87,7 +87,7 @@ const saveCoupleInfo = async (req, res) => {
 }
 
 const updateCoupleInfo = async (req, res) => {
-  const coupleInfo = await CoupleInfo.findOne({
+  const coupleInfo = await Coupleinfo.findOne({
     where: {
       uuid: req.params.id
     }
@@ -95,7 +95,7 @@ const updateCoupleInfo = async (req, res) => {
   if (!coupleInfo) return res.status(404).json({ msg: 'No Data Found' });
   let fileName = "";
   if (req.files === null) {
-    fileName = CoupleInfo.image;
+    fileName = Coupleinfo.image;
   } else {
     const file = req.files.file
     const fileSize = file.data.length
@@ -123,7 +123,7 @@ const updateCoupleInfo = async (req, res) => {
   const url = `${req.protocol}://be-test-wedding.herokuapp.com/images/${fileName}`;
 
   try {
-    await CoupleInfo.update({
+    await Coupleinfo.update({
       gender: gender,
       full: full,
       nick: nick,
@@ -145,7 +145,7 @@ const updateCoupleInfo = async (req, res) => {
 }
 
 const deleteCoupleInfo = async (req, res) => {
-  const coupleInfo = await CoupleInfo.findOne({
+  const coupleInfo = await Coupleinfo.findOne({
     where: {
       uuid: req.params.id
     }
@@ -155,7 +155,7 @@ const deleteCoupleInfo = async (req, res) => {
   try {
     const filePath = `./public/images/${coupleInfo.image}`;
     fs.unlinkSync(filePath);
-    await CoupleInfo.destroy({
+    await Coupleinfo.destroy({
       where: {
         uuid: req.params.id
       }

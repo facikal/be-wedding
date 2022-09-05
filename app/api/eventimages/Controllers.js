@@ -7,7 +7,7 @@ const getImage = async (req, res) => {
   try {
     const search = req.query.title || ""
     const result = await Eventimage.findAll({
-      attributes: ['uuid', 'title', 'image'],
+      attributes: ['uuid', 'title', 'image','url'],
       include: [{
         model: User,
         attributes: ['name', 'email']
