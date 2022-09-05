@@ -31,7 +31,7 @@ app.use(cors({
   origin: true,
 }))
 app.use(session({
-  secret: process.env.SESS_SECRET,
+  // secret: process.env.SESS_SECRET,
   resave: false,
   saveUninitialized: true,
   store: store,
