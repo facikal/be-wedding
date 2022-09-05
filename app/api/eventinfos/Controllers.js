@@ -4,6 +4,7 @@ const { EventInfo, User } = require('../../db/models')
 const getEventInfo = async (req, res) => {
   try {
     const result = await EventInfo.findAll({
+      attributes: ['uuid', 'dateAkad', 'locAkad', 'addressAkad', 'dateResepsi', 'locResepsi', 'addressResepsi', 'textFirstMeet', 'textJadian', 'textLamaran', 'video', 'addressGift', 'recieverGift','instagram'],
       include: [{
         model: User,
         attributes: ['name', 'email']
@@ -17,6 +18,7 @@ const getEventInfo = async (req, res) => {
 const getEventInfoById = async (req, res) => {
   try {
     const result = await EventInfo.findOne({
+      attributes: ['uuid', 'dateAkad', 'locAkad', 'addressAkad', 'dateResepsi', 'locResepsi', 'addressResepsi', 'textFirstMeet', 'textJadian', 'textLamaran', 'video', 'addressGift', 'recieverGift', 'instagram'],
       where: {
         uuid: req.params.id
       }

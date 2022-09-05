@@ -3,6 +3,7 @@ const { Norek, User } = require('../../db/models')
 const getNorek = async (req, res) => {
   try {
     const result = await Norek.findAll({
+      attributes: ['bank', 'name', 'number'],
       include: [{
         model: User,
         attributes: ['name', 'email']

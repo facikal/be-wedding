@@ -10,11 +10,11 @@ const getImage = async (req, res) => {
       attributes: ['uuid', 'title', 'image'],
       include: [{
         model: User,
-        attributes: ['name','email']
+        attributes: ['name', 'email']
       }]
     });
     const title = await Eventimage.findAll({
-      attributes: ['uuid', 'title', 'image'],
+      attributes: ['uuid', 'title', 'image', 'url'],
       where: {
         title: {
           [Op.like]: search
@@ -33,6 +33,7 @@ const getImage = async (req, res) => {
 const getEventImageById = async (req, res) => {
   try {
     const result = await Eventimage.findOne({
+      attributes: ['uuid', 'title', 'image', 'url'],
       where: {
         uuid: req.params.id
       }
@@ -51,7 +52,7 @@ const saveImage = async (req, res) => {
   const fileSize = file.data.length
   const ext = path.extname(file.name)
   const fileName = file.md5 + ext
-  const url = `${req.protocol}://https://be-test-wedding.herokuapp.com//images/${fileName}`;
+  const url = `${req.protocol}://be-test-wedding.herokuapp.com/images/${fileName}`;
   const allowedType = ['.png', '.jpg', '.jpeg']
 
   if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: 'invalid images' })
@@ -106,7 +107,7 @@ const updateImage = async (req, res) => {
     })
   }
   const title = req.body.title
-  const url = `${req.protocol}://https://be-test-wedding.herokuapp.com//images/${fileName}`;
+  const url = `${req.protocol}://be-test-wedding.herokuapp.com/images/${fileName}`;
 
   try {
     await Eventimage.update({
