@@ -54,7 +54,7 @@ const saveCoupleInfo = async (req, res) => {
   const fileSize = file.data.length
   const ext = path.extname(file.name)
   const fileName = file.md5 + ext
-  const url = `${req.protocol}://be-test-wedding.herokuapp.com/images/${fileName}`;
+  const url = `${req.protocol}://https://be-test-wedding.herokuapp.com//images/${fileName}`;
   const allowedType = ['.png', '.jpg', '.jpeg']
 
   if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: 'invalid images' })
@@ -119,7 +119,7 @@ const updateCoupleInfo = async (req, res) => {
   const child = req.body.child
   const father = req.body.father
   const mother = req.body.mother
-  const url = `${req.protocol}://be-test-wedding.herokuapp.com/images/${fileName}`;
+  const url = `${req.protocol}://https://be-test-wedding.herokuapp.com//images/${fileName}`;
 
   try {
     await CoupleInfo.update({
