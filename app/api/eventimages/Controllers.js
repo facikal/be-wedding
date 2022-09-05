@@ -1,4 +1,4 @@
-const { EventImage, User } = require('../../db/models')
+const { Eventimage, User } = require('../../db/models')
 const { Op } = require('sequelize')
 const path = require('path')
 const fs = require('fs')
@@ -6,13 +6,13 @@ const fs = require('fs')
 const getImage = async (req, res) => {
   try {
     const search = req.query.title || ""
-    const result = await EventImage.findAll({
+    const result = await Eventimage.findAll({
       include: [{
         model: User,
         attributes: ['name','email']
       }]
     });
-    const title = await EventImage.findAll({
+    const title = await Eventimage.findAll({
       where: {
         title: {
           [Op.like]: search
@@ -30,7 +30,7 @@ const getImage = async (req, res) => {
 
 const getEventImageById = async (req, res) => {
   try {
-    const result = await EventImage.findOne({
+    const result = await Eventimage.findOne({
       where: {
         uuid: req.params.id
       }
@@ -59,7 +59,7 @@ const saveImage = async (req, res) => {
   file.mv(`./public/images/${fileName}`, async (err) => {
     if (err) return res.status(500).json({ msg: err.messege })
     try {
-      await EventImage.create(
+      await Eventimage.create(
         {
           title: title,
           image: fileName,
@@ -76,7 +76,7 @@ const saveImage = async (req, res) => {
 }
 
 const updateImage = async (req, res) => {
-  const eventImage = await EventImage.findOne({
+  const eventImage = await Eventimage.findOne({
     where: {
       uuid: req.params.id
     }
@@ -84,7 +84,7 @@ const updateImage = async (req, res) => {
   if (!eventImage) return res.status(404).json({ msg: 'No Data Found' });
   let fileName = "";
   if (req.files === null) {
-    fileName = EventImage.image;
+    fileName = Eventimage.image;
   } else {
     const file = req.files.file
     const fileSize = file.data.length
@@ -107,7 +107,7 @@ const updateImage = async (req, res) => {
   const url = `${req.protocol}://https://be-test-wedding.herokuapp.com//images/${fileName}`;
 
   try {
-    await EventImage.update({
+    await Eventimage.update({
       title: title,
       image: fileName,
       url: url,
@@ -124,7 +124,7 @@ const updateImage = async (req, res) => {
 }
 
 const deleteImage = async (req, res) => {
-  const eventImage = await EventImage.findOne({
+  const eventImage = await Eventimage.findOne({
     where: {
       uuid: req.params.id
     }
@@ -134,7 +134,7 @@ const deleteImage = async (req, res) => {
   try {
     const filePath = `./public/images/${eventImage.image}`;
     fs.unlinkSync(filePath);
-    await EventImage.destroy({
+    await Eventimage.destroy({
       where: {
         uuid: req.params.id
       }
