@@ -77,7 +77,7 @@ const saveCoupleInfo = async (req, res) => {
           mother: mother,
           image: fileName,
           url: url,
-          // userId: req.userId,
+          userId: req.userId,
         }
       )
       res.status(201).json({ msg: 'couple info created' })
